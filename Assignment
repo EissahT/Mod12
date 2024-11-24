@@ -1,0 +1,58 @@
+public class Algorithms {
+
+    // Fibonacci Recursive
+    public static int fibonacciRecursive(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+    }
+
+    // Fibonacci Iterative
+    public static int fibonacciIterative(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int a = 0, b = 1, result = 0;
+        for (int i = 2; i <= n; i++) {
+            result = a + b;
+            a = b;
+            b = result;
+        }
+        return result;
+    }
+
+    // Decimal to Binary Recursive
+    public static String decimalToBinaryRecursive(int n) {
+        if (n == 0) {
+            return "";
+        }
+        return decimalToBinaryRecursive(n / 2) + (n % 2);
+    }
+
+    // Decimal to Binary Iterative
+    public static String decimalToBinaryIterative(int n) {
+        if (n == 0) {
+            return "0";
+        }
+        StringBuilder binary = new StringBuilder();
+        while (n > 0) {
+            binary.insert(0, n % 2);
+            n /= 2;
+        }
+        return binary.toString();
+    }
+
+    public static void main(String[] args) {
+        int fibNumber = 10;
+        int decimalNumber = 25;
+
+        // Fibonacci Results
+        System.out.println("Fibonacci Recursive of " + fibNumber + ": " + fibonacciRecursive(fibNumber));
+        System.out.println("Fibonacci Iterative of " + fibNumber + ": " + fibonacciIterative(fibNumber));
+
+        // Decimal to Binary Results
+        System.out.println("Decimal to Binary Recursive of " + decimalNumber + ": " + decimalToBinaryRecursive(decimalNumber));
+        System.out.println("Decimal to Binary Iterative of " + decimalNumber + ": " + decimalToBinaryIterative(decimalNumber));
+    }
+}
